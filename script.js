@@ -12,7 +12,7 @@ async function getUsers() {
     }
 }
 
-async function getMessage() {
+async function getMessages() {
     try {
         const response = await fetch(url + 'messages');
         allMessages = await response.json();
@@ -79,19 +79,42 @@ async function signUp() {
 
 async function showMessages() {
     let textBlog = document.getElementById("text-blog");
-    let messages = await fetch(url + 'users');
-    textBlog.innerHTML = messages
+    try {
+        const response = await fetch(url + 'messages');
+        const messages = await response.json();
+        textBlog.innerHTML = messages;
+    } catch (error) {
+        console.error('Error fetching messages:', error);
+    }
+    if (textBlog.innerHTML == "") {
+        textBlog.innerHTML = "No Messages Yet"
+    }
 }
-
-
-
-
 
 function sendMessage() {
     const myUsername = JSON.parse(localStorage.getItem("usernameKey"))["username"];
     const myMessage = document.getElementById("message-input").value;
-    let textBlog = document.getElementById("text-blog");
-    textBlog.innerHTML = "AAAAAA"
+    let newMessage = {
+        username: myUsername,
+        content: myMessage
+    };
+    try {
+        fetch(url + 'messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newMessage)
+        }).then(response => {
+            if (response.ok) {
+                showMessages();
+            } else {
+                alert("Error: Unable to send message!");
+            }
+        });
+    } catch (error) {
+        console.error('Error sending message:', error);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
