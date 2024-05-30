@@ -1,7 +1,7 @@
 let allUsers;
 let allMessages;
 
-const url = "http://localhost:3000/";
+const url = "https://blog-user-management.onrender.com/";
 
 async function getUsers() {
     try {
