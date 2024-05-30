@@ -82,12 +82,16 @@ async function showMessages() {
     try {
         const response = await fetch(url + 'messages');
         const messages = await response.json();
-        textBlog.innerHTML = messages;
+        let finalStr = ""
+        for (let i = 0; i < messages.length; i++) {
+            const message = messages[i];
+            finalStr += `
+                        ${message["username"]}: ${message["content"]}<br>
+                        `
+        }
+        textBlog.innerHTML = finalStr
     } catch (error) {
         console.error('Error fetching messages:', error);
-    }
-    if (textBlog.innerHTML == "") {
-        textBlog.innerHTML = "No Messages Yet"
     }
 }
 
