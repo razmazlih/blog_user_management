@@ -6,6 +6,10 @@ main {
     border-radius: 10px;
 }
 
+.my-input {
+    font-size: 30px;
+}
+
 .login-container {
     display: flex;
     flex-direction: column;
