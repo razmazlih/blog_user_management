@@ -1,8 +1,3 @@
-* {
-    /* border: solid 1px #e0e0e0;
-    box-sizing: border-box; */
-}
-
 main {
     width: 80%;
     padding: 20px;
@@ -130,6 +125,66 @@ body {
 
     h2 {
         font-size: 40px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1000px) {
+    h1 {
+        font-size: 80px;
+        text-align: center;
+    }
+
+    main {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .login-container {
+        height: 50vh;
+    }
+
+    #text-blog {
+        font-size: 25px;
+        border: solid 1px #e0e0e0;
+        height: 60vh;
+        overflow-y: auto;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    .input-container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: nowrap;
+    }
+
+    #message-input {
+        text-align: center;
+        margin-right: 15px;
+    }
+
+    #send-button {
+        color: white;
+        background-color: rgb(0, 145, 255);
+        box-shadow: 2px 2px black;
+    }
+
+    #message-input, #send-button {
+        font-size: 30px;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    a {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 45px;
         text-align: center;
     }
 }
