@@ -120,6 +120,7 @@ function sendMessage() {
     } catch (error) {
         console.error('Error sending message:', error);
     }
+    document.getElementById("message-input").value = ""
 }
 
 document.addEventListener('DOMContentLoaded', function () {
